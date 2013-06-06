@@ -1,20 +1,20 @@
 #!/bin/bash
 
-set -e
+apps="vimrc gitconfig gitignore vim zshrc zsh dircolors.conf"
 
 rm -rf dotfiles-backup
 mkdir -p dotfiles-backup
 
-# deploy
-#for f in vimrc gvimrc gitconfig gitignore zshrc zsh vim dircolors.conf slate
-for f in vimrc gitconfig gitignore vim zshrc dircolors.conf
+for app in $apps
 do
     if [ -e ~/.${f} ]; then
-        mv ~/.${f} dotfiles-backup/${f}
+        mv ~/.${app} dotfiles-backup/${app}
     fi
-    ln -sf `pwd`/${f} ~/.${f}
+    ln -sf `pwd`/${app} ~/.${app}
 done
 
 if [ ! -e ~/.zshrc-local ]; then
     cp zshrc-local ~/.zshrc-local
 fi
+
+
