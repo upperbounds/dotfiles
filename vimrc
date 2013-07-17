@@ -32,7 +32,7 @@ filetype plugin indent on     " required!
 syntax on
 
 "set guifont=Inconsolata-dz\ for\ Powerline
-"set laststatus=2
+set laststatus=2
 
 " Python-mode
 " Activate rope
