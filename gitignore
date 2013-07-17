@@ -1,0 +1,13 @@
+ass
+*.pyc
+*.swo
+*.swp
+*.iml
+.svn
+.swo
+*#*
+#
+.#*
+doc/tags
+.idea
+.DS_Store

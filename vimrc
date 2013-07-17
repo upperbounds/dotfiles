@@ -94,7 +94,7 @@ endfunction
 
 " Function to activate a virtualenv in the embedded interpreter for
 " omnicomplete and other things like that.
-" function LoadVirtualEnv(path)
+function LoadVirtualEnv(path)
     let activate_this = a:path . '/sandbox/bin/activate_this.py'
     if getftype(a:path) == "dir" && filereadable(activate_this)
         python << EOF
