@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#apps="vimrc gitconfig gitignore vim zshrc zsh dircolors.conf"
 apps="vimrc gitconfig gitignore vim zshrc zsh dircolors.conf"
 
 rm -rf dotfiles-backup
