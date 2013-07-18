@@ -14,7 +14,7 @@ fi
 
 # run after local because local because user bin should
 # take absolute priority
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$PATH
 
 # override builtin functions (preexec, precmd, etc.)
 source ~/.zsh/functions.zsh-overrides
@@ -24,6 +24,7 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 #
 alias vi=vim
+export EDITOR=vim
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
