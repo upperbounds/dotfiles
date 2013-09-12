@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #apps="vimrc gitconfig gitignore vim zshrc zsh dircolors.conf"
-apps="vimrc gitconfig gitignore vim zshrc zsh dircolors.conf"
+apps="vimrc gitconfig gitignore vim zshrc zsh dircolors.conf python.py"
 
 rm -rf dotfiles-backup
 mkdir -p dotfiles-backup
