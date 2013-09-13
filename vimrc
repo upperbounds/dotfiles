@@ -25,7 +25,7 @@ Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 " ...
 
 Bundle 'scrooloose/nerdtree'
-Bundle 'klen/python-mode'
+"Bundle 'klen/python-mode'
 
 filetype plugin indent on     " required!
 
@@ -33,6 +33,8 @@ syntax on
 
 "set guifont=Inconsolata-dz\ for\ Powerline
 set laststatus=2
+
+set hlsearch
 
 " Python-mode
 " Activate rope

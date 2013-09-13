@@ -14,7 +14,7 @@ fi
 
 # run after local because local because user bin should
 # take absolute priority
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/bin:$HOME/.cabal/bin:$PATH
 
 # override builtin functions (preexec, precmd, etc.)
 source ~/.zsh/functions.zsh-overrides
@@ -31,3 +31,9 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 RPS1="$PR_MAGENTA(%D{%m-%d %H:%M:%S})$PR_NO_COLOR"
 eval `gdircolors $HOME/.dircolors.conf  `
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+source $HOME/.rvm/scripts/rvm
+
+PYTHONSTARTUP=$HOME/.python.py
+export PYTHONSTARTUP
