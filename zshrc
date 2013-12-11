@@ -4,7 +4,7 @@ export ZSH_THEME="agnoster"
 export DEFAULT_USER="colinflanagan-morgan"
 export DE=gnome
 
-plugins=(git ssh-agent zsh-syntax-highlighting)
+plugins=(git ssh-agent zsh-syntax-highlighting gem brew bundler github heroku rake rvm tmux)
 
 for config_file (~/.zsh/*.zsh) source $config_file
 
