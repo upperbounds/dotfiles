@@ -106,3 +106,6 @@ execfile(activate_this, dict(__file__=activate_this))
 EOF
     endif
 endfunction
+if filereadable($HOME."/.vimrc-local")
+    source ~/.vimrc-local
+endif
