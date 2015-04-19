@@ -14,7 +14,7 @@ fi
 
 # run after local because local because user bin should
 # take absolute priority
-export PATH=~/sandbox/bin:$HOME/bin:$HOME/.cabal/bin:$PATH
+export PATH=~/sandbox4/bin:$HOME/bin:$HOME/.cabal/bin:$PATH
 
 # override builtin functions (preexec, precmd, etc.)
 source ~/.zsh/functions.zsh-overrides
@@ -25,6 +25,7 @@ source $ZSH/oh-my-zsh.sh
 #
 alias vi=vim
 export EDITOR=vim
+alias beg='bundle exec guard'
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -34,6 +35,9 @@ eval `gdircolors $HOME/.dircolors.conf  `
 
 #source $HOME/.rvm/scripts/rvm
 #PATH=$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
+export WORKON_HOME=$HOME/.virtualenvs
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+export PIP_RESPECT_VIRTUALENV=true
 
 PYTHONSTARTUP=$HOME/.python.py
 export PYTHONSTARTUP
