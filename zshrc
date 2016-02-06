@@ -22,9 +22,8 @@ source ~/.zsh/functions.zsh-overrides
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-#
-alias vi=vim
-export EDITOR=vim
+
+export EDITOR=emacsclient
 alias beg='bundle exec guard'
 
 fpath=(/usr/local/share/zsh-completions $fpath)
@@ -41,5 +40,4 @@ export PIP_RESPECT_VIRTUALENV=true
 
 PYTHONSTARTUP=$HOME/.python.py
 export PYTHONSTARTUP
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
-
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
