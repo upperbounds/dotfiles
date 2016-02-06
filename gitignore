@@ -1,4 +1,5 @@
 ass
+Gemfile.lock
 *.pyc
 *.swo
 *.swp
