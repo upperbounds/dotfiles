@@ -1,5 +1,6 @@
 ass
 Gemfile.lock
+Cask
 *.pyc
 *.swo
 *.swp
