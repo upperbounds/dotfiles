@@ -20,7 +20,12 @@ if [ -e $HOME/.zshrc-local ]; then
     source $HOME/.zshrc-local
 fi
 
-source $(brew --prefix)/share/antigen
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
+
+zplug "supercrabtree/k"
+
+# source $(brew --prefix)/share/antigen
 #antigen bundle Vifon/deer
 #autoload -U deer
 #zle -N deer
@@ -90,7 +95,7 @@ export BOOT_JVM_OPTIONS
 export LDFLAGS='-L/usr/local/opt/mysql@5.6/lib'
 export CPPFLAGS='-I/usr/local/opt/mysql@5.6/include'
 
-export JAVA_HOME=`/usr/libexec/java_home -v 9.0.1`
+export JAVA_HOME=`/usr/libexec/java_home -v 9.0.4`
 export PATH="/usr/local/opt/qt/bin:$PATH"
 source $HOME/projects/zaw/zaw.zsh
 
@@ -100,6 +105,16 @@ bindkey -M filterselect '^S' up-line-or-history
 bindkey -M filterselect '^E' accept-search
 
 zstyle ':filter-select:highlight' matched fg=green
-zstyle ':filter-select' max-lines 3
+zstyle ':filter-select' max-lines 15
 zstyle ':filter-select' case-insensitive yes
 zstyle ':filter-select' extended-search yes
+
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+
+source ~/bin/tmuxinator.zsh
+
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/projects
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+source /usr/local/bin/virtualenvwrapper.sh
