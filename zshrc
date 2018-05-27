@@ -1,18 +1,16 @@
-# echo "Im in zshrc"
 ZSH=$HOME/.oh-my-zsh
+# export DEFAULT_USER="colin"
+export DEFAULT_USER=`whoami`
 
 if [[ -n ${INSIDE_EMACS} ]]; then
-    echo "IM in emacs!!!!"
     export TERM=xterm-256color
 else
     export ZSH_THEME="agnoster"
 fi
 
-
-export DEFAULT_USER="colin"
 export DE=gnome
 
-plugins=(git ssh-agent zsh-syntax-highlighting gem brew bundler heroku rake rvm tmux emacs)
+plugins=(git ssh-agent zsh-syntax-highlighting gem brew bundler heroku rake rvm tmux emacs docker)
 
 for config_file (~/.zsh/*.zsh) source $config_file
 
@@ -45,7 +43,7 @@ source $ZSH/oh-my-zsh.sh
 #export EDITOR=emacsclient
 alias beg='bundle exec guard'
 
-fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=(~/.zsh/completion /usr/local/share/zsh-completions $fpath)
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 RPS1="$PR_MAGENTA(%D{%m-%d %H:%M:%S})$PR_NO_COLOR"
@@ -53,6 +51,7 @@ eval `gdircolors $HOME/.dircolors.conf  `
 
 #source $HOME/.rvm/scripts/rvm
 #PATH=$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
+
 export WORKON_HOME=$HOME/.virtualenvs
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true
@@ -97,6 +96,8 @@ export CPPFLAGS='-I/usr/local/opt/mysql@5.6/include'
 
 export JAVA_HOME=`/usr/libexec/java_home -v 9.0.4`
 export PATH="/usr/local/opt/qt/bin:$PATH"
+export PATH="/usr/local/opt/texinfo/bin:$PATH"
+# export PATH="/Users/colin/.cargo/bin:$PATH"
 source $HOME/projects/zaw/zaw.zsh
 
 bindkey '^R' zaw-history
