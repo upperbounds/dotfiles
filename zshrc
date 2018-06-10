@@ -71,6 +71,8 @@ zle -N znt-history-widget
 setopt AUTO_PUSHD HIST_IGNORE_DUPS PUSHD_IGNORE_DUPS
 ### END ###
 
+source "${HOME}/.zgen/zgen.zsh"
+
 # CHROME='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 CHROME='/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary'
 CHROME_DEV_PROFILE="/Users/$USER/Library/Application Support/Google/ChromeDevel"
@@ -98,7 +100,11 @@ export JAVA_HOME=`/usr/libexec/java_home -v 9.0.4`
 export PATH="/usr/local/opt/qt/bin:$PATH"
 export PATH="/usr/local/opt/texinfo/bin:$PATH"
 # export PATH="/Users/colin/.cargo/bin:$PATH"
-source $HOME/projects/zaw/zaw.zsh
+# source $HOME/projects/zaw/zaw.zsh
+
+zgen load zsh-users/zaw
+zgen load willghatch/zsh-zaw-mpd
+zgen load paulirish/git-open
 
 bindkey '^R' zaw-history
 bindkey -M filterselect '^R' down-line-or-history
@@ -119,3 +125,10 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/projects
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 source /usr/local/bin/virtualenvwrapper.sh
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
