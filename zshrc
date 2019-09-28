@@ -10,7 +10,7 @@ fi
 
 export DE=gnome
 
-plugins=(git ssh-agent zsh-syntax-highlighting gem brew bundler heroku rake rvm tmux emacs docker)
+plugins=(git ssh-agent gem brew bundler heroku rake rvm tmux emacs docker docker-compose gradle)
 
 for config_file (~/.zsh/*.zsh) source $config_file
 
@@ -83,6 +83,7 @@ export CHROME CHROME_DEV_PROFILE
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+alias ls='exa'
 
 alias ec="emacsclient -n"
 alias calibre-add='/Applications/calibre.app/Contents/console.app/Contents/MacOS/calibredb add'
@@ -96,7 +97,8 @@ export BOOT_JVM_OPTIONS
 export LDFLAGS='-L/usr/local/opt/mysql@5.6/lib'
 export CPPFLAGS='-I/usr/local/opt/mysql@5.6/include'
 
-export JAVA_HOME=`/usr/libexec/java_home -v 9.0.4`
+# export JAVA_HOME=`/usr/libexec/java_home -v 9.0.4`
+export JAVA_HOME=`/usr/libexec/java_home -v 11.0.1`
 export PATH="/usr/local/opt/qt/bin:$PATH"
 export PATH="/usr/local/opt/texinfo/bin:$PATH"
 # export PATH="/Users/colin/.cargo/bin:$PATH"
@@ -105,6 +107,8 @@ export PATH="/usr/local/opt/texinfo/bin:$PATH"
 zgen load zsh-users/zaw
 zgen load willghatch/zsh-zaw-mpd
 zgen load paulirish/git-open
+
+zgen load zdharma/fast-syntax-highlighting
 
 bindkey '^R' zaw-history
 bindkey -M filterselect '^R' down-line-or-history
@@ -118,7 +122,7 @@ zstyle ':filter-select' extended-search yes
 
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
-
+export PATH=$PATH:$GOBIN
 source ~/bin/tmuxinator.zsh
 
 export WORKON_HOME=$HOME/.virtualenvs
@@ -126,9 +130,20 @@ export PROJECT_HOME=$HOME/projects
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 source /usr/local/bin/virtualenvwrapper.sh
 
+export DOCKER_BUILDKIT=1
+
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
 [[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+
+gam() { "/Users/colin/bin/gam/gam" "$@" ; }
+
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
+
+# opam configuration
+test -r /Users/colin/.opam/opam-init/init.zsh && . /Users/colin/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
