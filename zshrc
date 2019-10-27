@@ -10,7 +10,7 @@ fi
 
 export DE=gnome
 
-plugins=(git ssh-agent gem brew bundler heroku rake rvm tmux emacs docker docker-compose gradle)
+plugins=(git ssh-agent gem brew bundler aws terraform rake rvm tmux emacs docker docker-compose gradle)
 
 for config_file (~/.zsh/*.zsh) source $config_file
 
@@ -71,6 +71,8 @@ zle -N znt-history-widget
 setopt AUTO_PUSHD HIST_IGNORE_DUPS PUSHD_IGNORE_DUPS
 ### END ###
 
+alias random-playlist='mpc listall | sort -R | head -100 > ~/.mpd-ditto/playlists/random.m3u'
+alias ladybug-dito-sync='rsync -avhSP --stats --exclude=".*"  /Volumes/ladybug  /Volumes/magpie/'
 source "${HOME}/.zgen/zgen.zsh"
 
 # CHROME='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
@@ -84,6 +86,7 @@ export CHROME CHROME_DEV_PROFILE
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 alias ls='exa'
+alias cat='bat'
 
 alias ec="emacsclient -n"
 alias calibre-add='/Applications/calibre.app/Contents/console.app/Contents/MacOS/calibredb add'
@@ -147,3 +150,6 @@ gam() { "/Users/colin/bin/gam/gam" "$@" ; }
 
 # opam configuration
 test -r /Users/colin/.opam/opam-init/init.zsh && . /Users/colin/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
+export SHOW_AWS_PROMPT=false
