@@ -1,5 +1,4 @@
 ZSH=$HOME/.oh-my-zsh
-# export DEFAULT_USER="colin"
 export DEFAULT_USER=`whoami`
 
 if [[ -n ${INSIDE_EMACS} ]]; then
@@ -10,7 +9,7 @@ fi
 
 export DE=gnome
 
-plugins=(git ssh-agent gem brew bundler aws terraform rake rvm tmux emacs docker docker-compose gradle)
+plugins=(git ssh-agent gem brew bundler aws terraform rake rvm tmux emacs docker docker-compose)
 
 for config_file (~/.zsh/*.zsh) source $config_file
 
@@ -52,12 +51,12 @@ eval `gdircolors $HOME/.dircolors.conf  `
 #source $HOME/.rvm/scripts/rvm
 #PATH=$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
 
-export WORKON_HOME=$HOME/.virtualenvs
-export PIP_VIRTUALENV_BASE=$WORKON_HOME
-export PIP_RESPECT_VIRTUALENV=true
+# export WORKON_HOME=$HOME/.virtualenvs
+# export PIP_VIRTUALENV_BASE=$WORKON_HOME
+# export PIP_RESPECT_VIRTUALENV=true
 
-PYTHONSTARTUP=$HOME/.python.py
-export PYTHONSTARTUP
+# PYTHONSTARTUP=$HOME/.python.py
+# export PYTHONSTARTUP
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 ### ZNT's installer added snippet ###
@@ -97,11 +96,11 @@ BOOT_JVM_OPTIONS="-client -XX:+TieredCompilation -XX:TieredStopAtLevel=1 -Xmx2g 
 
 export BOOT_JVM_OPTIONS
 
-export LDFLAGS='-L/usr/local/opt/mysql@5.6/lib'
-export CPPFLAGS='-I/usr/local/opt/mysql@5.6/include'
+# export LDFLAGS='-L/usr/local/opt/mysql@5.6/lib'
+# export CPPFLAGS='-I/usr/local/opt/mysql@5.6/include'
 
 # export JAVA_HOME=`/usr/libexec/java_home -v 9.0.4`
-export JAVA_HOME=`/usr/libexec/java_home -v 11.0.1`
+export JAVA_HOME=`/usr/libexec/java_home -v 11.0.5`
 export PATH="/usr/local/opt/qt/bin:$PATH"
 export PATH="/usr/local/opt/texinfo/bin:$PATH"
 # export PATH="/Users/colin/.cargo/bin:$PATH"
@@ -130,8 +129,6 @@ source ~/bin/tmuxinator.zsh
 
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/projects
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-source /usr/local/bin/virtualenvwrapper.sh
 
 export DOCKER_BUILDKIT=1
 
@@ -153,3 +150,8 @@ test -r /Users/colin/.opam/opam-init/init.zsh && . /Users/colin/.opam/opam-init/
 
 export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
 export SHOW_AWS_PROMPT=false
+
+export PATH="/Applications/Racket/bin:$PATH"
+export FLUTTER_HOME=$HOME/projects/flutter
+export PATH=$PATH:$FLUTTER_HOME/bin
+eval "$(direnv hook zsh)"

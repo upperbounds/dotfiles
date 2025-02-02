@@ -12,3 +12,6 @@ Cask
 doc/tags
 .idea
 .DS_Store
+.envrc
+**/.DS_Store
+.aider*
