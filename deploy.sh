@@ -1,6 +1,7 @@
 #!/bin/bash
 
-apps="vimrc gitconfig gitignore vim zshrc zsh dircolors.conf python.py tmux.conf"
+# apps="vimrc gitconfig gitignore vim zshrc zsh dircolors.conf python.py tmux.conf"
+apps="vimrc gitconfig gitignore vim zshrc zsh dircolors.conf  tmux.conf"
 
 rm -rf dotfiles-backup
 mkdir -p dotfiles-backup
