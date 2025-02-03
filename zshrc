@@ -17,7 +17,8 @@ if [ -e $HOME/.zshrc-local ]; then
     source $HOME/.zshrc-local
 fi
 
-export ZPLUG_HOME=/usr/local/opt/zplug
+# export ZPLUG_HOME=/usr/local/opt/zplug
+export ZPLUG_HOME=/opt/homebrew/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
 zplug "supercrabtree/k"
@@ -43,7 +44,8 @@ source $ZSH/oh-my-zsh.sh
 alias beg='bundle exec guard'
 
 fpath=(~/.zsh/completion /usr/local/share/zsh-completions $fpath)
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 RPS1="$PR_MAGENTA(%D{%m-%d %H:%M:%S})$PR_NO_COLOR"
 eval `gdircolors $HOME/.dircolors.conf  `
@@ -84,7 +86,7 @@ export CHROME CHROME_DEV_PROFILE
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-alias ls='exa'
+alias ls='eza'
 alias cat='bat'
 
 alias ec="emacsclient -n"
@@ -109,7 +111,6 @@ export PATH="/usr/local/opt/texinfo/bin:$PATH"
 zgen load zsh-users/zaw
 zgen load willghatch/zsh-zaw-mpd
 zgen load paulirish/git-open
-
 zgen load zdharma/fast-syntax-highlighting
 
 bindkey '^R' zaw-history
@@ -139,7 +140,7 @@ export DOCKER_BUILDKIT=1
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 
-gam() { "/Users/colin/bin/gam/gam" "$@" ; }
+# gam() { "/Users/colin/bin/gam/gam" "$@" ; }
 
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
