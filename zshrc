@@ -94,19 +94,8 @@ alias calibre-add='/Applications/calibre.app/Contents/console.app/Contents/MacOS
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 alias mpc-info="mpc -f '%title% %artist% %album% %file%'"
-BOOT_JVM_OPTIONS="-client -XX:+TieredCompilation -XX:TieredStopAtLevel=1 -Xmx2g -XX:MaxMetaspaceSize=500m -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -Xverify:none"
 
-export BOOT_JVM_OPTIONS
-
-# export LDFLAGS='-L/usr/local/opt/mysql@5.6/lib'
-# export CPPFLAGS='-I/usr/local/opt/mysql@5.6/include'
-
-# export JAVA_HOME=`/usr/libexec/java_home -v 9.0.4`
-export JAVA_HOME=`/usr/libexec/java_home -v 11.0.5`
-export PATH="/usr/local/opt/qt/bin:$PATH"
-export PATH="/usr/local/opt/texinfo/bin:$PATH"
-# export PATH="/Users/colin/.cargo/bin:$PATH"
-# source $HOME/projects/zaw/zaw.zsh
+# export JAVA_HOME=`/usr/libexec/java_home -v 11.0.5`
 
 zgen load zsh-users/zaw
 zgen load willghatch/zsh-zaw-mpd
@@ -156,3 +145,19 @@ export PATH="/Applications/Racket/bin:$PATH"
 export FLUTTER_HOME=$HOME/projects/flutter
 export PATH=$PATH:$FLUTTER_HOME/bin
 eval "$(direnv hook zsh)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# pnpm
+export PNPM_HOME="/Users/colin/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
