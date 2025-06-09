@@ -18,4 +18,6 @@ if [ ! -e ~/.zshrc-local ]; then
     cp zshrc-local ~/.zshrc-local
 fi
 
+# TODO: convert to GNU stow
 
+# https://github.com/dylanaraps/pure-sh-bible
