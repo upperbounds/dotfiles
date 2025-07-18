@@ -9,7 +9,7 @@ fi
 
 export DE=gnome
 
-plugins=(git ssh-agent gem brew bundler aws terraform rake rvm tmux emacs docker docker-compose)
+plugins=(git ssh-agent gem brew aws terraform rake rvm tmux emacs docker docker-compose podman)
 
 for config_file (~/.zsh/*.zsh) source $config_file
 
