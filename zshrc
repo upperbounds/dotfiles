@@ -4,6 +4,7 @@ export DEFAULT_USER=`whoami`
 if [[ -n ${INSIDE_EMACS} ]]; then
     export TERM=xterm-256color
 else
+    export SOLARIZED_THEME=light
     export ZSH_THEME="agnoster"
 fi
 
@@ -88,6 +89,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 alias ls='eza'
 alias cat='bat'
+export BAT_THEME="gruvbox-light"
 
 alias ec="emacsclient -n"
 alias calibre-add='/Applications/calibre.app/Contents/console.app/Contents/MacOS/calibredb add'
