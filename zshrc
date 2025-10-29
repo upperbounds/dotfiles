@@ -5,10 +5,13 @@ if [[ -n ${INSIDE_EMACS} ]]; then
     export TERM=xterm-256color
 else
     export SOLARIZED_THEME=light
-    export ZSH_THEME="agnoster"
+    plugins=(git ssh-agent gem brew aws terraform rake rvm emacs docker docker-compose podman)
+    # source $ZSH/oh-my-zsh.sh
+    # RPS1="$PR_MAGENTA(%D{%m-%d %H:%M:%S})$PR_NO_COLOR"
+    # eval `gdircolors $HOME/.dircolors.conf  `
+    # export ZSH_THEME="agnoster"
+    eval "$(starship init zsh)"	
 fi
-
-plugins=(git ssh-agent gem brew aws terraform rake rvm tmux emacs docker docker-compose podman)
 
 for config_file (~/.zsh/*.zsh) source $config_file
 
@@ -25,16 +28,11 @@ zplug "supercrabtree/k"
 # override builtin functions (preexec, precmd, etc.)
 source ~/.zsh/functions.zsh-overrides
 
-source $ZSH/oh-my-zsh.sh
-
 fpath=(~/.zsh/completion /usr/local/share/zsh-completions $fpath)
 # source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-RPS1="$PR_MAGENTA(%D{%m-%d %H:%M:%S})$PR_NO_COLOR"
-eval `gdircolors $HOME/.dircolors.conf  `
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 ### ZNT's installer added snippet ###
 fpath=( "$fpath[@]" "$HOME/.config/znt/zsh-navigation-tools" )
@@ -48,17 +46,17 @@ setopt AUTO_PUSHD HIST_IGNORE_DUPS PUSHD_IGNORE_DUPS
 ### END ###
 
 alias random-playlist='mpc listall | sort -R | head -100 > ~/.mpd-ditto/playlists/random.m3u'
-alias ladybug-dito-sync='rsync -avhSP --stats --exclude=".*"  /Volumes/ladybug  /Volumes/magpie/'
+
 source "${HOME}/.zgen/zgen.zsh"
 alias ffp="ffplay -autoexit"
 
 alias ls='eza'
 alias cat='bat'
-export BAT_THEME="gruvbox-light"
+
+# export BAT_THEME="gruvbox-light"
+export BAT_THEME="Catppuccin Latte"
 
 alias ec="emacsclient -n"
-
-alias mpc-info="mpc -f '%title% %artist% %album% %file%'"
 
 zgen load zsh-users/zaw
 zgen load willghatch/zsh-zaw-mpd
@@ -75,16 +73,11 @@ zstyle ':filter-select' max-lines 15
 zstyle ':filter-select' case-insensitive yes
 zstyle ':filter-select' extended-search yes
 
-# source ~/bin/tmuxinator.zsh
-
-export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/projects
-
-export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
 export SHOW_AWS_PROMPT=false
+
 eval "$(direnv hook zsh)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
