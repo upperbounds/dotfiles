@@ -6,9 +6,9 @@ if [[ -n ${INSIDE_EMACS} ]]; then
 else
     export SOLARIZED_THEME=light
     plugins=(git ssh-agent gem brew aws terraform rake rvm emacs docker docker-compose podman)
-    source $ZSH/oh-my-zsh.sh
-    RPS1="$PR_MAGENTA(%D{%m-%d %H:%M:%S})$PR_NO_COLOR"
-    eval `gdircolors $HOME/.dircolors.conf  `
+    # source $ZSH/oh-my-zsh.sh
+    # RPS1="$PR_MAGENTA(%D{%m-%d %H:%M:%S})$PR_NO_COLOR"
+    # eval `gdircolors $HOME/.dircolors.conf  `
     # export ZSH_THEME="agnoster"
     eval "$(starship init zsh)"	
 fi
