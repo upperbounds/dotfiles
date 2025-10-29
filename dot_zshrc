@@ -31,7 +31,7 @@ source ~/.zsh/functions.zsh-overrides
 
 fpath=(~/.zsh/completion /usr/local/share/zsh-completions $fpath)
 # source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
