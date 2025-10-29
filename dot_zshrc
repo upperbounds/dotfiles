@@ -65,6 +65,8 @@ zplug "zsh-users/zaw"
 # zgen load paulirish/git-open
 # zgen load zdharma/fast-syntax-highlighting
 
+zplug load
+
 bindkey '^R' zaw-history
 bindkey -M filterselect '^R' down-line-or-history
 bindkey -M filterselect '^S' up-line-or-history
@@ -79,8 +81,6 @@ export PROJECT_HOME=$HOME/projects
 export SHOW_AWS_PROMPT=false
 
 eval "$(direnv hook zsh)"
-
-zplug load
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
