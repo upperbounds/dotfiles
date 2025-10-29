@@ -19,8 +19,8 @@ if [ -e $HOME/.zshrc-local ]; then
     source $HOME/.zshrc-local
 fi
 
-export PATH="/home/colin/.local/bin:$PATH"
-export ZPLUG_HOME=/usr/local/opt/zplug
+# export PATH="/home/colin/.local/bin:$PATH"
+export ZPLUG_HOME=export ZPLUG_HOME=.local/opt/zplug/
 # export ZPLUG_HOME=/opt/homebrew/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
