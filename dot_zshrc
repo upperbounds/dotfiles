@@ -19,6 +19,8 @@ if [ -e $HOME/.zshrc-local ]; then
     source $HOME/.zshrc-local
 fi
 
+export PATH="/home/colin/.local/bin:$PATH"
+
 # export ZPLUG_HOME=/usr/local/opt/zplug
 export ZPLUG_HOME=/opt/homebrew/opt/zplug
 source $ZPLUG_HOME/init.zsh
@@ -50,8 +52,8 @@ alias random-playlist='mpc listall | sort -R | head -100 > ~/.mpd-ditto/playlist
 source "${HOME}/.zgen/zgen.zsh"
 alias ffp="ffplay -autoexit"
 
-alias ls='eza'
-alias cat='bat'
+alias ls='lsd'
+
 
 # export BAT_THEME="gruvbox-light"
 export BAT_THEME="Catppuccin Latte"
