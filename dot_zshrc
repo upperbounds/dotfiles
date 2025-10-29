@@ -48,7 +48,7 @@ setopt AUTO_PUSHD HIST_IGNORE_DUPS PUSHD_IGNORE_DUPS
 
 alias random-playlist='mpc listall | sort -R | head -100 > ~/.mpd-ditto/playlists/random.m3u'
 
-source "${HOME}/.zgen/zgen.zsh"
+# source "${HOME}/.zgen/zgen.zsh"
 alias ffp="ffplay -autoexit"
 
 alias ls='lsd'
@@ -59,10 +59,11 @@ export BAT_THEME="Catppuccin Latte"
 
 alias ec="emacsclient -n"
 
-zgen load zsh-users/zaw
-zgen load willghatch/zsh-zaw-mpd
+# zgen load zsh-users/zaw
+zplug "zsh-users/zaw"
+# zgen load willghatch/zsh-zaw-mpd
 zgen load paulirish/git-open
-zgen load zdharma/fast-syntax-highlighting
+# zgen load zdharma/fast-syntax-highlighting
 
 bindkey '^R' zaw-history
 bindkey -M filterselect '^R' down-line-or-history
