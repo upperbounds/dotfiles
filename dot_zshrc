@@ -10,7 +10,7 @@ else
     # RPS1="$PR_MAGENTA(%D{%m-%d %H:%M:%S})$PR_NO_COLOR"
     # eval `gdircolors $HOME/.dircolors.conf  `
     # export ZSH_THEME="agnoster"
-    eval "$(starship init zsh)"	
+
 fi
 
 for config_file (~/.zsh/*.zsh) source $config_file
@@ -20,7 +20,6 @@ if [ -e $HOME/.zshrc-local ]; then
 fi
 
 export PATH="/home/colin/.local/bin:$PATH"
-
 # export ZPLUG_HOME=/usr/local/opt/zplug
 export ZPLUG_HOME=/opt/homebrew/opt/zplug
 source $ZPLUG_HOME/init.zsh
@@ -84,6 +83,8 @@ eval "$(direnv hook zsh)"
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 export PATH="/home/colin/.local/bin:$PATH"
+
+eval "$(starship init zsh)"
 export MISE_SHELL=zsh
 export __MISE_ORIG_PATH="$PATH"
 export __MISE_ZSH_PRECMD_RUN=0
