@@ -22,7 +22,7 @@ fi
 export PATH="/home/colin/.local/bin:$PATH"
 # export ZPLUG_HOME=/usr/local/opt/zplug
 # export ZPLUG_HOME=/opt/homebrew/opt/zplug
-# source $ZPLUG_HOME/init.zsh
+source $ZPLUG_HOME/init.zsh
 
 zplug "supercrabtree/k"
 
