@@ -62,7 +62,7 @@ alias ec="emacsclient -n"
 # zgen load zsh-users/zaw
 zplug "zsh-users/zaw"
 # zgen load willghatch/zsh-zaw-mpd
-zgen load paulirish/git-open
+# zgen load paulirish/git-open
 # zgen load zdharma/fast-syntax-highlighting
 
 bindkey '^R' zaw-history
@@ -79,6 +79,8 @@ export PROJECT_HOME=$HOME/projects
 export SHOW_AWS_PROMPT=false
 
 eval "$(direnv hook zsh)"
+
+zplug load
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
