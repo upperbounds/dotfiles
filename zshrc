@@ -50,7 +50,7 @@ alias random-playlist='mpc listall | sort -R | head -100 > ~/.mpd-ditto/playlist
 source "${HOME}/.zgen/zgen.zsh"
 alias ffp="ffplay -autoexit"
 
-alias ls='eza'
+alias ls='lsd'
 alias cat='bat'
 
 # export BAT_THEME="gruvbox-light"
