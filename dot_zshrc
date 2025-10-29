@@ -87,7 +87,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 export PATH="/home/colin/.local/bin:$PATH"
 
-eval "$(starship init zsh)"
+
 export MISE_SHELL=zsh
 export __MISE_ORIG_PATH="$PATH"
 export __MISE_ZSH_PRECMD_RUN=0
@@ -148,3 +148,5 @@ if [ -z "${_mise_cmd_not_found:-}" ]; then
         fi
     }
 fi
+
+eval "$(starship init zsh)"
