@@ -80,7 +80,7 @@ zstyle ':filter-select' extended-search yes
 export PROJECT_HOME=$HOME/projects
 export SHOW_AWS_PROMPT=false
 
-eval "$(direnv hook zsh)"
+
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -149,4 +149,5 @@ if [ -z "${_mise_cmd_not_found:-}" ]; then
     }
 fi
 
+eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
