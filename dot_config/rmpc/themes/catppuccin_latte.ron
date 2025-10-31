@@ -6,25 +6,25 @@
     show_song_table_header: true,
     draw_borders: true,
     browser_column_widths: [20, 38, 42],
-    background_color: "#1e1e2e",
-    text_color: "#cdd6f4",
+    background_color: "#eff1f5",
+    text_color: "#4c4f69",
     header_background_color: None,
-    modal_background_color: "#11111b",
+    modal_background_color: "#dce0e8",
     tab_bar: (
         enabled: true,
         active_style: (fg: "black", bg: "blue", modifiers: "Bold"),
         inactive_style: (),
     ),
-    highlighted_item_style: (fg: "#eba0ac", modifiers: "Bold"),
+    highlighted_item_style: (fg: "#e64553", modifiers: "Bold"),
     current_item_style: (fg: "black", bg: "blue", modifiers: "Bold"),
     borders_style: (fg: "blue"),
     highlight_border_style: (fg: "blue"),
     symbols: (song: "󰎇", dir: "󰉋", marker: " ", ellipsis: "..."),
     progress_bar: (
         symbols: ["", "", " "],
-        track_style: (fg: "#1e2030"),
-        elapsed_style: (fg: "#eba0ac"),
-        thumb_style: (fg: "#eba0ac", bg: "#1e2030"),
+        track_style: (fg: "#ccd0da"),
+        elapsed_style: (fg: "#e64553"),
+        thumb_style: (fg: "#e64553", bg: "#ccd0da"),
     ),
     scrollbar: (
         symbols: ["│", "█", "▲", "▼"],
@@ -46,8 +46,8 @@
             width: "55%",
         ),
         (
-            prop: (kind: Property(Album), style: (fg: "white"),
-                default: (kind: Text("Unknown Album"), style: (fg: "white"))
+            prop: (kind: Property(Album), style: (fg: "black"),
+                default: (kind: Text("Unknown Album"), style: (fg: "black"))
             ),
             width: "20%",
         ),
@@ -124,10 +124,10 @@
                 right: [
                     (
                         kind: Property(Widget(States(
-                            active_style: (fg: "white", modifiers: "Bold"),
-                            separator_style: (fg: "white")))
+                            active_style: (fg: "black", modifiers: "Bold"),
+                            separator_style: (fg: "black")))
                         ),
-                        style: (fg: "dark_gray")
+                        style: (fg: "gray")
                     ),
                 ]
             ),
