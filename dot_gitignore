@@ -1,0 +1,17 @@
+Gemfile.lock
+Cask
+*.pyc
+*.swo
+*.swp
+*.iml
+.svn
+.swo
+*#*
+#
+.#*
+doc/tags
+.idea
+.DS_Store
+.envrc
+**/.DS_Store
+.aider*
