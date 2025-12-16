@@ -1,0 +1,16 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "theme": "catppuccin",
+  "tui": {
+    "scroll_acceleration": {
+      "enabled": true
+    },
+    "keybinds": {
+      "history_previous": "up,ctrl+k",
+      "history_next": "down,ctrl+j",
+      "messages_half_page_up": "ctrl+u",
+      "messages_half_page_down": "ctrl+d",
+      "session_interrupt": "escape,ctrl+c"
+    }
+  }
+}
