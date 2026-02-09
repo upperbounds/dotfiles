@@ -1,153 +1,67 @@
+zmodload zsh/zprof
+
 ZSH=$HOME/.oh-my-zsh
-export DEFAULT_USER=`whoami`
+plugins=(git ssh-agent brew aws terraform emacs docker docker-compose podman)
+source $ZSH/oh-my-zsh.sh
+
+eval "$(mise activate zsh)"
+eval "$(atuin init --disable-up-arrow zsh)"
+eval "$(direnv hook zsh)"
+eval "$(starship init zsh)"
+eval "$(circleci completion zsh)"
+
+eval "$(chezmoi completion zsh)"
 
 if [[ -n ${INSIDE_EMACS} ]]; then
     export TERM=xterm-256color
 else
     export SOLARIZED_THEME=light
-    plugins=(git ssh-agent gem brew aws terraform rake rvm emacs docker docker-compose podman)
-    # source $ZSH/oh-my-zsh.sh
-    # RPS1="$PR_MAGENTA(%D{%m-%d %H:%M:%S})$PR_NO_COLOR"
-    # eval `gdircolors $HOME/.dircolors.conf  `
-    # export ZSH_THEME="agnoster"
-
 fi
 
-for config_file (~/.zsh/*.zsh) source $config_file
+# for config_file (~/.zsh/*.zsh) source $config_file
 
 if [ -e $HOME/.zshrc-local ]; then
     source $HOME/.zshrc-local
 fi
 
-# export PATH="/home/colin/.local/bin:$PATH"
-export ZPLUG_HOME=export ZPLUG_HOME=.local/opt/zplug/
-# export ZPLUG_HOME=/opt/homebrew/opt/zplug
-source $ZPLUG_HOME/init.zsh
+# source ~/.zsh/functions.zsh-overrides
 
-zplug "supercrabtree/k"
+fpath=(~/.zsh/completion $fpath)
 
-# override builtin functions (preexec, precmd, etc.)
-source ~/.zsh/functions.zsh-overrides
-
-fpath=(~/.zsh/completion /usr/local/share/zsh-completions $fpath)
-# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-### ZNT's installer added snippet ###
-fpath=( "$fpath[@]" "$HOME/.config/znt/zsh-navigation-tools" )
-autoload n-aliases n-cd n-env n-functions n-history n-kill n-list n-list-draw n-list-input n-options n-panelize
-autoload znt-usetty-wrapper znt-history-widget znt-cd-widget znt-kill-widget
-alias naliases=n-aliases ncd=n-cd nenv=n-env nfunctions=n-functions nhistory=n-history
-alias nkill=n-kill noptions=n-options npanelize=n-panelize
-zle -N znt-history-widget
-# bindkey '^R' znt-history-widget
-setopt AUTO_PUSHD HIST_IGNORE_DUPS PUSHD_IGNORE_DUPS
-### END ###
-
-alias random-playlist='mpc listall | sort -R | head -100 > ~/.mpd-ditto/playlists/random.m3u'
-
-# source "${HOME}/.zgen/zgen.zsh"
 alias ffp="ffplay -autoexit"
-
 alias ls='lsd'
-
-
-# export BAT_THEME="gruvbox-light"
-export BAT_THEME="Catppuccin Latte"
-
+alias cat="bat"
 alias ec="emacsclient -n"
 
-# zgen load zsh-users/zaw
-zplug "zsh-users/zaw"
-# zgen load willghatch/zsh-zaw-mpd
-# zgen load paulirish/git-open
-# zgen load zdharma/fast-syntax-highlighting
+# export ZPLUG_HOME=/opt/homebrew/opt/zplug
+# source $ZPLUG_HOME/init.zsh
+# override builtin functions (preexec, precmd, etc.)
+# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# zplug load
+# Zaw - Zsh Aware History
+# zplug "zsh-users/zaw"
+# bindkey '^R' zaw-history
+# bindkey '^r' atuin-search
+# bindkey -M filterselect '^R' down-line-or-history
+# bindkey -M filterselect '^S' up-line-or-history
+# bindkey -M filterselect '^E' accept-search
+# zstyle ':filter-select:highlight' matched fg=green
+# zstyle ':filter-select' max-lines 15
+# zstyle ':filter-select' case-insensitive yes
+# zstyle ':filter-select' extended-search yes
 
-zplug load
+# zplug "lib/git", from:oh-my-zsh
+# zplug "plugins/git", from:oh-my-zsh
+# zplug "plugins/ssh-agent", from:oh-my-zsh
+# zplug "plugins/brew", from:oh-my-zsh
+# zplug "plugins/aws", from:oh-my-zsh
+# zplug "plugins/terraform", from:oh-my-zsh
+# zplug "plugins/docker", from:oh-my-zsh
+# zplug "plugins/docker-compose", from:oh-my-zsh
+# zplug "plugins/podman", from:oh-my-zsh
 
-bindkey '^R' zaw-history
-bindkey -M filterselect '^R' down-line-or-history
-bindkey -M filterselect '^S' up-line-or-history
-bindkey -M filterselect '^E' accept-search
-
-zstyle ':filter-select:highlight' matched fg=green
-zstyle ':filter-select' max-lines 15
-zstyle ':filter-select' case-insensitive yes
-zstyle ':filter-select' extended-search yes
-
-export PROJECT_HOME=$HOME/projects
-export SHOW_AWS_PROMPT=false
+# zplug load
 
 
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-export PATH="/home/colin/.local/bin:$PATH"
-
-
-export MISE_SHELL=zsh
-export __MISE_ORIG_PATH="$PATH"
-export __MISE_ZSH_PRECMD_RUN=0
-
-mise() {
-  local command
-  command="${1:-}"
-  if [ "$#" = 0 ]; then
-    command /home/colin/.local/bin/mise
-    return
-  fi
-  shift
-
-  case "$command" in
-  deactivate|shell|sh)
-    # if argv doesn't contains -h,--help
-    if [[ ! " $@ " =~ " --help " ]] && [[ ! " $@ " =~ " -h " ]]; then
-      eval "$(command /home/colin/.local/bin/mise "$command" "$@")"
-      return $?
-    fi
-    ;;
-  esac
-  command /home/colin/.local/bin/mise "$command" "$@"
-}
-
-_mise_hook() {
-  eval "$(/home/colin/.local/bin/mise hook-env -s zsh)";
-}
-_mise_hook_precmd() {
-  eval "$(/home/colin/.local/bin/mise hook-env -s zsh --reason precmd)";
-}
-_mise_hook_chpwd() {
-  eval "$(/home/colin/.local/bin/mise hook-env -s zsh --reason chpwd)";
-}
-typeset -ag precmd_functions;
-if [[ -z "${precmd_functions[(r)_mise_hook_precmd]+1}" ]]; then
-  precmd_functions=( _mise_hook_precmd ${precmd_functions[@]} )
-fi
-typeset -ag chpwd_functions;
-if [[ -z "${chpwd_functions[(r)_mise_hook_chpwd]+1}" ]]; then
-  chpwd_functions=( _mise_hook_chpwd ${chpwd_functions[@]} )
-fi
-
-_mise_hook
-if [ -z "${_mise_cmd_not_found:-}" ]; then
-    _mise_cmd_not_found=1
-    [ -n "$(declare -f command_not_found_handler)" ] && eval "${$(declare -f command_not_found_handler)/command_not_found_handler/_command_not_found_handler}"
-
-    function command_not_found_handler() {
-        if [[ "$1" != "mise" && "$1" != "mise-"* ]] && /home/colin/.local/bin/mise hook-not-found -s zsh -- "$1"; then
-          _mise_hook
-          "$@"
-        elif [ -n "$(declare -f _command_not_found_handler)" ]; then
-            _command_not_found_handler "$@"
-        else
-            echo "zsh: command not found: $1" >&2
-            return 127
-        fi
-    }
-fi
-
-eval "$(direnv hook zsh)"
-eval "$(starship init zsh)"
+# zprof

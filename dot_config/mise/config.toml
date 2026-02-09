@@ -1,5 +1,10 @@
 [tools]
+atuin = "latest"
 bat = "latest"
+bitwarden = "latest"
 chezmoi = "latest"
 direnv = "latest"
+fnox = "latest"
+java = "openjdk-21"
 starship = "latest"
+zellij = "latest"
