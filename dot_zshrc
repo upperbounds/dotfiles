@@ -33,6 +33,8 @@ alias ls='lsd'
 alias cat="bat"
 alias ec="emacsclient -n"
 
+bindkey '^ ' autosuggest-accept
+
 # export ZPLUG_HOME=/opt/homebrew/opt/zplug
 # source $ZPLUG_HOME/init.zsh
 # override builtin functions (preexec, precmd, etc.)
